@@ -1,0 +1,23 @@
+
+<mat-sidenav-container class="app-side-nav-container">
+  <mat-sidenav class="app-side-nav"
+  opened="true"
+  mode="side"
+  #sidenav
+  >
+    <mat-toolbar color="primary">
+      Dashboard
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="link.url" *ngFor="let link of links">
+        {{ link.name }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="app-sidenav-content">
+    <app-tool-bar (toggleSidenav)="sidenav.toggle()"></app-tool-bar>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-sidenav-container>
